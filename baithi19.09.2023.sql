@@ -8,7 +8,7 @@ GO
 
 --Customer
 CREATE TABLE Customer(
-CustomerId int not null primary key,
+CustomerId int primary key,
 Name nvarchar(50),
 City nvarchar(50),
 Country nvarchar(50),
@@ -19,7 +19,7 @@ GO
 
 --CustomerAccount
 CREATE TABLE CustomerAccount(
-AccountNumber char(9) not null primary key,
+AccountNumber char(9) primary key,
 CustomerId int not null foreign key references Customer(CustomerId),
 Balance money not null,
 MiniAccount money 
@@ -28,7 +28,7 @@ GO
 
 --CustomerTransaction
 CREATE TABLE CustomerTransaction(
-TransactionId int not null primary key,
+TransactionId int primary key,
 AccountNumber char(9) foreign key references CustomerAccount(AccountNumber),
 TransactionDate smalldatetime,
 Amount money,
